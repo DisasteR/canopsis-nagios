@@ -50,4 +50,6 @@ void n2a_logger (int priority, const char *loginfo, ...)
     va_end (ap);
 
     write_to_all_logs (buffer, priority);
+    free(buffer);
+    free(format);
 }
