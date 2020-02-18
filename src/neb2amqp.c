@@ -176,7 +176,7 @@ bool n2a_amqp_connect (void)
             amqp_login (
                 conn,
                 g_options.virtual_host,
-                0, 131072, 0,
+                2047, 131072, 0,
                 AMQP_SASL_METHOD_PLAIN,
                 g_options.userid,
                 g_options.password
@@ -352,6 +352,8 @@ bool n2a_amqp_publish (const char *routingkey, const char *message)
     {
         return false;
     }
+
+    // n2a_logger (LG_INFO, "AMQP: Sending message to %s:%s -> %s", g_options.exchange_name, routingkey, message);
 
     props._flags = AMQP_BASIC_CONTENT_TYPE_FLAG | AMQP_BASIC_DELIVERY_MODE_FLAG | AMQP_BASIC_CONTENT_ENCODING_FLAG;
     props.content_type = amqp_cstring_bytes ("application/json");
