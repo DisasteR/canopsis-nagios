@@ -328,7 +328,7 @@ AMQP_CALL amqp_version(void);
  *
  * \since v0.4.0
  */
-#define AMQP_DEFAULT_MAX_CHANNELS 0
+#define AMQP_DEFAULT_MAX_CHANNELS 2047
 
 /**
  * \def AMQP_DEFAULT_HEARTBEAT
